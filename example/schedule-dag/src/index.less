@@ -1,0 +1,198 @@
+.butterfly-schedule-dag {
+  @keyframes spin {
+    to {
+      transform: rotate(-1turn);
+    }
+  }
+  background: #2e2e2e;
+  .schedule-node {
+    position: absolute;
+    border: 1px solid #595959;
+    color: #fff;
+    height: 36px;
+    min-width: 98px;
+    line-height: 36px;
+    border-radius: 100px;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+      border-color: #f66902;
+    }
+    &.select {
+      background: rgba(246, 105, 2, 0.2);
+      border-color: #f66902;
+    }
+    &.running {
+      border: 1px dashed #f66902;
+      .node-status {
+        position:absolute;
+        right: 10px;
+        height: 15px;
+        width: 15px;
+        top: -7px;
+        background-image: url(./img/running.svg);
+        animation: spin 1s infinite linear;
+        background-size: cover;
+      }
+    }
+    .node-icon {
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      width: 30px;
+      border-radius: 15px;
+      position: relative;
+      left: 2px;
+      background-color: #f66902;
+    }
+    .node-status{
+      display: block;
+      background-image: url(./img/running.svg);
+      animation: spin 1s infinite linear;
+    }
+    .node-text {
+      font-family: PingFangSC-Regular;
+      display: inline-block;
+      height: 36px;
+      width: 84px;
+      padding: 0 10px;
+      line-height: 36px;
+      font-size: 12px;
+      text-align: left;
+      vertical-align: bottom;
+    }
+  }
+
+  //线条样式
+  .butterflies-link-event-handler {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .schedule-link {
+    stroke-dasharray: 3 2;
+    &.hover {
+      stroke-width: 1.5;
+      stroke: #f66902;
+    }
+    &.select {
+      stroke-width: 1.5;
+      stroke: #f66902;
+    }
+    &.connect {
+      stroke-dasharray: none;
+    }
+    &.running {
+      stroke: #f66902;
+      stroke-dasharray: 5, 5;
+      stroke-width: 1.5;
+      animation: processing-line 30s infinite linear;
+      @keyframes processing-line {
+        to {
+          stroke-dashoffset: -1000;
+        }
+      }
+    }
+  }
+  .schedule-arrow {
+    &.hover {
+      stroke: #f66902;
+      fill: #f66902;
+    }
+    &.select {
+      stroke: #f66902;
+      fill: #f66902;
+    }
+    &.running {
+      stroke: #f66902;
+      fill: #f66902;
+    }
+  }
+
+  .schedule-label {
+    transform: scale(0.8);
+    background: #313131;
+    padding: 1px 6px;
+    color: #fff;
+    cursor: pointer;
+    &.focus {
+      border: 1px solid #f66902;
+    }
+  }
+
+  .schedule-endpoint {
+    width: 6px;
+    height: 6px;
+    border: 1px solid #999999;
+    background-color: white;
+    &:hover {
+      cursor: crosshair;
+    }
+    &.linkable{
+      background-color: #f66902;
+      width: 8px;
+      height: 8px;
+    }
+  }
+  // .butterflie-circle-endpoint.linkable {
+  //   &::after {
+  //     content: '';
+  //     width: 8px;
+  //     height: 8px;
+  //     border-radius: 50%;
+  //     background: orange;
+  //     border: none;
+  //   }
+  // }
+  // .butterflie-circle-endpoint.linkable {
+  //   visibility: visible;
+  //   position: absolute;
+  //   justify-content: center;
+  //   align-items: center;
+  //   width: 8px;
+  //   height: 8px;
+  //   border-radius: 50%;
+  //   background: rgba(246,105,2,0.6);
+  //   border: none;
+  //   // &.@{prefix}-picker-top {
+  //   //   top: -9px;
+  //   //   left: calc(50% - 9px);
+  //   // }
+  //   // &.@{prefix}-picker-right {
+  //   //   right: -9px;
+  //   //   top: calc(50% - 9px);
+  //   // }
+  //   // &.@{prefix}-picker-bottom {
+  //   //   bottom: -9px;
+  //   //   left: calc(50% - 9px);
+  //   // }
+  //   // &.@{prefix}-picker-left {
+  //   //   left: -9px;
+  //   //   top: calc(50% - 9px);
+  //   // }
+  //   // z-index: 2;
+
+  //   // display: flex;
+  //   // position: absolute;
+  //   // border-radius: 50%;
+  //   // width: 10px;
+  //   // height: 10px;
+  //   // border: #f66902;
+  //   // background-color: #f66902;
+  //   // top: -5px;
+  //   // left: calc(50% - 5px);
+  //   // &::after{
+  //   //   content:'';
+  //   //   width:7px;
+  //   //   height: 7px;
+  //   //   border-radius: 50%;
+  //   //   z-index: 999;
+  //   //   // border: 1px solid #999999;
+  //   //   background-color: white;
+  //   // }
+  // }
+
+  .group {
+    background: #fff;
+  }
+}
